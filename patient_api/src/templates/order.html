@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Orders</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename = 'images/icons/favicon.ico') }}"/>
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css') }}">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/animate/animate.css') }}">
+  <!--===============================================================================================-->	
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/css-hamburgers/hamburgers.min.css') }}">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/select2/select2.min.css') }}">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/main.css') }}">
+  <!--===============================================================================================-->
+</head>
+<body>
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+                <div class="container">
+                    <span class="login100-form-title">
+                      {% include 'includes/_navbar.html' %}
+						<h1>All Orders</h1>
+					</span>           
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Order id</th>
+                          <th>Patient Name</th>
+                          <th>Patient Email </th>
+                          <th>Amount</th>
+                          <th>Order Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {%for o in order%}
+                        <tr>
+                            <td><a href="{{ url_for('admin_api.get_order_items',id = o.id)}}">{{o.id}}</a></td>
+                            <td><a href="{{ url_for('admin_api.get_order_items',id = o.id)}}">{{o.patient_name}}</a></td>
+                            <td><a href="{{ url_for('admin_api.get_order_items',id = o.id)}}">{{o.patient_email}}</a></td>
+                            <td><a href="{{ url_for('admin_api.get_order_items',id = o.id)}}">{{o.amount}}</a></td>
+                            <td><a href="{{ url_for('admin_api.get_order_items',id = o.id)}}">{{o.order_date}}</a></td>
+                        </tr> 
+                        {%endfor%}
+                      </tbody>
+                    </table>
+                  </div>
+            </div>
+		</div>
+	</div>
+
+ <!--===============================================================================================-->	
+ <script src="{{ url_for('static', filename = 'vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+ <!--===============================================================================================-->
+   <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/popper.js') }}"></script>
+   <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+ <!--===============================================================================================-->
+   <script src="{{ url_for('static', filename = 'vendor/select2/select2.min.js') }}"></script>
+ <!--===============================================================================================-->
+   <script src="{{ url_for('static', filename = 'vendor/tilt/tilt.jquery.min.js') }}"></script>
+   <script >
+     $('.js-tilt').tilt({
+       scale: 1.1
+     })
+   </script>
+ <!--===============================================================================================-->
+   <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+</body>
+</html>

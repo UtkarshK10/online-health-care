@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All Medicine</title>
+        <style>
+            .card-img-top {
+                width: 100%;
+                height: 25vw;
+                object-fit: cover;
+            }
+        </style>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->	
+<link rel="icon" type="image/png" href="{{ url_for('static', filename = 'images/icons/favicon.ico') }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/animate/animate.css') }}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/main.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">  
+        <span class="login100-form-title">
+                  {% include 'includes/_navbar.html' %}
+                  {% include 'includes/_messages.html' %}
+                    <h1>All Medicines</h1> 
+        </span>
+        <div class="row">
+          {% for m in medicine %}
+          <div class="card col-lg-6 mb-4" style="width:800px">
+                <img class="card-img-top" src="{{m.image_url}}" alt="Card image" style="width:100%">  
+            <div class="card-body">
+                <h4 class="card-title">{{m.name}}</h4>
+                <p class="card-text">{{m.description[0:30]}}...</p>
+                <br/>
+                <p><h6>Stock:&nbsp;{{m.stock}}</h6></p>
+                <br/>
+                <p><h6>Price:&nbsp;&#8377;&nbsp;{{m.price}}</h6></p>
+                <br/>
+                <div>
+                <button type="button" class="btn btn-primary" style="margin-right:150px;" onclick="window.location.href='{{ url_for('admin_api.update_page',id = m.id)}}';">Update</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for('admin_api.delete_one_medicine',id = m.id)}}';">Delete</button>
+                </div>
+            </div>
+          </div> 
+          {%endfor%}   
+      </div>         
+                  
+      </div>   
+    </div>
+  </div>        
+  <!--===============================================================================================-->	
+	<script src="{{ url_for('static', filename = 'vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+  <!--===============================================================================================-->
+    <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+  <!--===============================================================================================-->
+    <script src="{{ url_for('static', filename = 'vendor/select2/select2.min.js') }}"></script>
+  <!--===============================================================================================-->
+    <script src="{{ url_for('static', filename = 'vendor/tilt/tilt.jquery.min.js') }}"></script>
+    <script >
+      $('.js-tilt').tilt({
+        scale: 1.1
+      })
+    </script>
+  <!--===============================================================================================-->
+    <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+  
+  
+</body>
+</html>

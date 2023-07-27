@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('admin_api.get_all_medicines')}}">Medico<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('admin_api.add_page')}}">Add Medicine</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('admin_api.get_all_orders')}}">Show Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('admin_api.add_doctor_page')}}">Add Doctor</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('admin_api.get_all_doctors')}}">Show Doctor</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('admin_api.logout')}}">Logout</a>
+        </li>
+      </ul> 
+    </div>
+  </nav>

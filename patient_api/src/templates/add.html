@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Medicine</title>
+    <!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename = 'images/icons/favicon.ico') }}"/>
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css') }}">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/animate/animate.css') }}">
+	<!--===============================================================================================-->	
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/css-hamburgers/hamburgers.min.css') }}">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/select2/select2.min.css') }}">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/util.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/main.css') }}">
+	<!--===============================================================================================-->
+</head>
+<body>
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				{% include 'includes/_navbar.html' %}
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="https://thumbs.dreamstime.com/b/smiley-doctor-cartoon-character-green-capsule-medicine-stethoscope-white-background-74267888.jpg" alt="IMG">
+				</div>
+				<form class="login100-form validate-form" action="{{url_for('admin_api.add_one_medicine')}}" method="POST" enctype="multipart/form-data">
+					<span class="login100-form-title">
+						Add Medicine
+					</span>
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="name" placeholder="Medicine Name">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-heartbeat" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="stock" placeholder="Stock">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-book" aria-hidden="true"></i>
+						</span>
+                    </div>
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="price" placeholder="Price">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-inr" aria-hidden="true"></i>
+						</span>
+                    </div>
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="description" placeholder="Description">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-sticky-note" aria-hidden="true"></i>
+						</span>
+                    </div>
+                    <div>
+                        <input type="file" id="myfile" name="file">
+                    </div>    
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Add
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    
+<!--===============================================================================================-->	
+<script src="{{ url_for('static', filename = 'vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename = 'vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename = 'vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename = 'vendor/tilt/tilt.jquery.min.js') }}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+</body>
+</html>
